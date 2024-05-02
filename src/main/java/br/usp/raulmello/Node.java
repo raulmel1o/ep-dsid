@@ -4,6 +4,7 @@ import br.usp.raulmello.inbound.Dispatcher;
 import br.usp.raulmello.outbound.Message;
 import br.usp.raulmello.outbound.MessageFactory;
 import br.usp.raulmello.outbound.Outbox;
+import br.usp.raulmello.ui.UiHandler;
 import br.usp.raulmello.utils.Address;
 import lombok.Getter;
 import lombok.Setter;
@@ -57,6 +58,7 @@ public class Node {
         final Thread dispatcherThread = new Thread(new Dispatcher(hostPort, 100));
         dispatcherThread.start();
 
-
+        final UiHandler uiHandler = new UiHandler();
+        uiHandler.showMenu();
     }
 }
