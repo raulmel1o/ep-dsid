@@ -2,15 +2,17 @@ package br.usp.raulmello;
 
 import java.util.*;
 
-public class FileReader {
-    public static List<Peer> readNeighbourPeersFromFile(final String filename) {
-        final List<Peer> peers = new ArrayList<>();
+import static java.util.Objects.requireNonNull;
 
-        final Scanner scanner = new Scanner(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream(filename)));
-        while (scanner.hasNextLine()) {
-            peers.add(new Peer(scanner.nextLine()));
+public class FileReader {
+    public static List<String> readNeighboursFromFile(final String filename) {
+        final List<String> peers = new ArrayList<>();
+
+        try (final Scanner scanner = new Scanner(requireNonNull(Main.class.getClassLoader().getResourceAsStream(filename)))) {
+            while (scanner.hasNextLine()) {
+                peers.add(scanner.nextLine());
+            }
         }
-        scanner.close();
 
         return peers;
     }
@@ -18,7 +20,7 @@ public class FileReader {
     public static Map<String, String> readDataFromValuesFile(final String filename) {
         final Map<String, String> values = new HashMap<>();
 
-        final Scanner scanner = new Scanner(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream(filename)));
+        final Scanner scanner = new Scanner(requireNonNull(Main.class.getClassLoader().getResourceAsStream(filename)));
         while (scanner.hasNextLine()) {
             final String[] line = scanner.nextLine().split(" ");
             values.put(line[0], line[1]);
