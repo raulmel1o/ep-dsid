@@ -1,26 +1,22 @@
 package br.usp.raulmello;
 
-import java.util.*;
+import br.usp.raulmello.ui.FileReader;
+import lombok.extern.log4j.Log4j;
 
-import static br.usp.raulmello.FileReader.readDataFromValuesFile;
-import static br.usp.raulmello.FileReader.readNeighboursFromFile;
+import java.util.List;
+import java.util.Map;
 
+@Log4j
 public class Main {
     public static void main(final String[] args) {
-        final String address = args[0];
-        final String port = args[1];
+        final String hostAddress = args[0];
+        final int hostPort = Integer.parseInt(args[1]);
+        final Map<String, String> values = FileReader.readDataFromValuesFile(args[3]);
+        final List<String> neighborsList = FileReader.readNeighboursFromFile(args[2]);
 
-        List<String> peers = List.of();
-        Map<String, String> values = Map.of();
-
-        if (args.length > 2) {
-            peers = readNeighboursFromFile(args[2]);
-        }
-
-        if (args.length > 3) {
-            values = readDataFromValuesFile(args[3]);
-        }
+        log.debug("Initializing node with host: " + hostAddress + ", port: " + hostPort + ", neighbors: " + neighborsList + ", values: " + values);
+        final Node node = Node.initNode(hostAddress, hostPort, values, neighborsList);
+        log.debug("Starting node");
+        node.startNode();
     }
-
-
 }

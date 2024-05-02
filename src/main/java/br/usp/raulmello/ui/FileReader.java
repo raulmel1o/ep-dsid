@@ -1,10 +1,15 @@
-package br.usp.raulmello;
+package br.usp.raulmello.ui;
+
+import br.usp.raulmello.Main;
 
 import java.util.*;
 
 import static java.util.Objects.requireNonNull;
 
 public class FileReader {
+
+    private FileReader() {}
+
     public static List<String> readNeighboursFromFile(final String filename) {
         final List<String> peers = new ArrayList<>();
 

@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/MessageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/MessageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3ce79dad4168ab4adbc628a0e6513e19551e8243" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3ce79dad4168ab4adbc628a0e6513e19551e8243" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96364c339ae55571e1c01ab14c2de8983b415240" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96364c339ae55571e1c01ab14c2de8983b415240" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/MessageOutbox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/MessageFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,29 +51,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/raul.mello/dev/ep-dsid/src/main/java/br/usp/raulmello/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
+    "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
+    "JUnit.MessageTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "new-features",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/raul.mello/dev/ep-dsid/src/main/java/br/usp/raulmello/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.usp.raulmello" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
-      <option name="PROGRAM_PARAMETERS" value="localhost 5000 vizinhos.txt lista_chave_valor.txt" />
+      <option name="PROGRAM_PARAMETERS" value="localhost 8080 vizinhos.txt lista_chave_valor.txt" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.usp.raulmello.*" />
+          <option name="PATTERN" value="br.usp.raulmello.inbound.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,9 +89,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ep-dsid" />
+      <option name="PACKAGE_NAME" value="outbound" />
+      <option name="MAIN_CLASS_NAME" value="outbound.MessageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ep-dsid" />
+      <option name="PACKAGE_NAME" value="outbound" />
+      <option name="MAIN_CLASS_NAME" value="outbound.MessageTest" />
+      <option name="METHOD_NAME" value="GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ep-dsid" />
+      <option name="PACKAGE_NAME" value="outbound" />
+      <option name="MAIN_CLASS_NAME" value="outbound.MessageTest" />
+      <option name="METHOD_NAME" value="GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MessageTest" />
+      <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
+      <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MessageTest" />
+        <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
+        <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull" />
       </list>
     </recent_temporary>
   </component>
@@ -92,7 +151,7 @@
       <updated>1713819270101</updated>
       <workItem from="1713819271085" duration="6430000" />
       <workItem from="1713904619665" duration="1840000" />
-      <workItem from="1714568902497" duration="6908000" />
+      <workItem from="1714568902497" duration="17020000" />
     </task>
     <servers />
   </component>
