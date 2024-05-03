@@ -27,7 +27,7 @@ public class Outbox {
             final String response = (String) in.readObject();
             log.debug("Got response: " + response + " from " + destination);
 
-            final boolean success = response.equalsIgnoreCase("ack");
+            final boolean success = response.equalsIgnoreCase(message.getOperation() + "_OK");
 
             if (success) {
                 log.info("Envio feito com sucesso: \"" + message + "\"");

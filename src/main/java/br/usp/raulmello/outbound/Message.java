@@ -3,6 +3,7 @@ package br.usp.raulmello.outbound;
 import br.usp.raulmello.utils.Address;
 import br.usp.raulmello.utils.Operation;
 import lombok.Builder;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class Message {
     private Address origin;
     private int sequenceNumber;
     private int ttl;
+    @Getter
     private Operation operation;
     private List<String> args;
 
