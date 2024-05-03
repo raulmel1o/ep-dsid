@@ -13,6 +13,11 @@ public class Address {
         this.port = Integer.parseInt(parts[1]);
     }
 
+    public Address(final String domain, final int port) {
+        this.domain = domain;
+        this.port = port;
+    }
+
     @Override
     public String toString() {
         return domain + ":" + port;

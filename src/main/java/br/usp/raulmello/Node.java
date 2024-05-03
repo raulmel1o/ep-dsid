@@ -2,9 +2,7 @@ package br.usp.raulmello;
 
 import br.usp.raulmello.inbound.Dispatcher;
 import br.usp.raulmello.outbound.Message;
-import br.usp.raulmello.outbound.MessageFactory;
 import br.usp.raulmello.outbound.Outbox;
-import br.usp.raulmello.ui.UiHandler;
 import br.usp.raulmello.utils.Address;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,13 +11,17 @@ import lombok.extern.log4j.Log4j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
+
+import static br.usp.raulmello.outbound.MessageFactory.createHelloMessage;
+import static br.usp.raulmello.ui.MenuWriter.showInitialMenu;
+import static br.usp.raulmello.ui.MenuWriter.showNeighbors;
 
 @Log4j
 @Getter
 @Setter
 public class Node {
-    private String hostAddress;
-    private int hostPort;
+    private Address hostAddress;
 
     private List<Address> neighbors;
     private Map<String, String> values;
@@ -27,8 +29,7 @@ public class Node {
     private int sequenceNumber;
 
     private Node(final String hostAddress, final int hostPort, final Map<String, String> values) {
-        this.hostAddress = hostAddress;
-        this.hostPort = hostPort;
+        this.hostAddress = new Address(hostAddress, hostPort);
         this.neighbors = new ArrayList<>();
         this.values = values;
     }
@@ -38,13 +39,12 @@ public class Node {
 
         neighbors.forEach(neighbor -> {
             log.debug("Trying to HELLO neighbor: " + neighbor);
-            final Address address = new Address(neighbor);
-
-            final Message message = MessageFactory.createHelloMessage(address, node.getSequenceNumber());
-            final boolean success = Outbox.sendMessage(message, address);
+            final Address destAddress = new Address(neighbor);
+            final Message message = createHelloMessage(node.getHostAddress(), node.getSequenceNumber());
+            final boolean success = Outbox.sendMessage(message, destAddress);
 
             if (success) {
-                neighbors.add(neighbor);
+                node.neighbors.add(new Address(neighbor));
                 log.debug("Neighbor added: " + neighbor);
             }
         });
@@ -55,10 +55,33 @@ public class Node {
 
     public void startNode() {
         log.debug("Starting node");
-        final Thread dispatcherThread = new Thread(new Dispatcher(hostPort, 100));
+
+        final Thread dispatcherThread = new Thread(new Dispatcher(hostAddress.getPort(), 100));
         dispatcherThread.start();
 
-        final UiHandler uiHandler = new UiHandler();
-        uiHandler.showMenu();
+        handleUserInput();
+    }
+
+    private void handleUserInput() {
+        final Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            showInitialMenu();
+            final String inputOption = scanner.nextLine();
+
+            if (inputOption.equals("0")) {
+                showNeighbors(this.neighbors);
+            }
+
+            if (inputOption.equals("1")) {
+                showNeighbors(this.neighbors);
+                final Address neighbor = this.neighbors.get(Integer.parseInt(scanner.nextLine()));
+                final Message message = createHelloMessage(this.getHostAddress(), this.sequenceNumber);
+                Outbox.sendMessage(message, neighbor);
+                this.sequenceNumber++;
+            }
+
+            if (inputOption.equals("9")) break;
+        }
     }
 }

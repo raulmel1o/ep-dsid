@@ -7,12 +7,12 @@ import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 @Builder
 public class Message {
     private Address origin;
     private int sequenceNumber;
     private int ttl;
-    @Getter
     private Operation operation;
     private List<String> args;
 
@@ -29,5 +29,16 @@ public class Message {
         }
 
         return sb.append("\n").toString();
+    }
+
+    public static Message fromString(final String message) {
+        final String[] split = message.split(" ");
+
+        return Message.builder()
+                .origin(new Address(split[0]))
+                .sequenceNumber(Integer.parseInt(split[1]))
+                .ttl(Integer.parseInt(split[2]))
+                .operation(Operation.valueOf(split[3]))
+                .build();
     }
 }

@@ -44,4 +44,15 @@ class MessageTest {
 
         assertEquals("127.0.1.1:1234 100 1 HELLO first-arg second-arg\n", message.toString());
     }
+
+    @Test
+    void GivenHelloString_WhenFromString_ThenShouldParseMessage() {
+        final Message message = Message.fromString("localhost:8080 3 1 HELLO");
+
+        assertEquals("localhost", message.getOrigin().getDomain());
+        assertEquals(8080, message.getOrigin().getPort());
+        assertEquals(3, message.getSequenceNumber());
+        assertEquals(1, message.getTtl());
+        assertEquals(HELLO, message.getOperation());
+    }
 }

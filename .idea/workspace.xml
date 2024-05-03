@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="print menu after dispatcher runs">
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix hello response value">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/UiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/UiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/UiHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -36,13 +47,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
+    "JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage.executor": "Run",
     "JUnit.MessageTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "new-features",
+    "git-widget-placeholder": "feat/list-neighbors",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,7 +70,7 @@
       <recent name="br.usp.raulmello" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -102,14 +114,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ep-dsid" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="outbound.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="outbound" />
+      <option name="MAIN_CLASS_NAME" value="outbound.MessageTest" />
+      <option name="METHOD_NAME" value="GivenHelloString_WhenFromString_ThenShouldParseMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
       <item itemvalue="JUnit.MessageTest" />
       <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
       <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MessageTest" />
         <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
@@ -136,6 +166,7 @@
       <workItem from="1713819271085" duration="6430000" />
       <workItem from="1713904619665" duration="1840000" />
       <workItem from="1714568902497" duration="18593000" />
+      <workItem from="1714737978623" duration="4985000" />
     </task>
     <task id="LOCAL-00001" summary="move packages here and there, handle connections">
       <option name="closed" value="true" />
@@ -161,17 +192,37 @@
       <option name="project" value="LOCAL" />
       <updated>1714661175666</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix hello response value">
+      <option name="closed" value="true" />
+      <created>1714769426740</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714769426740</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="move packages here and there, handle connections" />
     <MESSAGE value="add sonarlint files to ignore" />
     <MESSAGE value="deleting not ignored sonarlint files" />
     <MESSAGE value="print menu after dispatcher runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="print menu after dispatcher runs" />
+    <MESSAGE value="fix hello response value" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix hello response value" />
   </component>
 </project>

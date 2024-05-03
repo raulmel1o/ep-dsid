@@ -1,8 +1,13 @@
 package br.usp.raulmello.inbound;
 
+import br.usp.raulmello.outbound.Message;
+import br.usp.raulmello.utils.Operation;
+import lombok.extern.log4j.Log4j;
+
 import java.io.*;
 import java.net.Socket;
 
+@Log4j
 public class RequestHandler implements Runnable {
     private final Socket clientSocket;
 
@@ -17,8 +22,17 @@ public class RequestHandler implements Runnable {
             out.flush();
             final ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 
+            final Message message = Message.fromString((String) in.readObject());
 
-        } catch (IOException e) {
+            if (message == null) {
+                log.error("Message is null");
+                return;
+            }
+
+            if (message.getOperation().equals(Operation.HELLO)) {
+                out.writeObject("HELLO_OK");
+            }
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
