@@ -6,7 +6,6 @@ import br.usp.raulmello.outbound.Outbox;
 import br.usp.raulmello.utils.Address;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.Scanner;
 import static br.usp.raulmello.ui.MenuWriter.*;
 import static br.usp.raulmello.utils.MessageFactory.createHelloMessage;
 
-@Log4j
 @Getter
 @Setter
 public class Node {
@@ -37,23 +35,23 @@ public class Node {
         final Node node = new Node(hostAddress, hostPort, values);
 
         neighbors.forEach(neighbor -> {
-            log.debug("Trying to HELLO neighbor: " + neighbor);
+            System.out.println("Trying to HELLO neighbor: " + neighbor);
             final Address destAddress = new Address(neighbor);
             final Message message = createHelloMessage(node.getHostAddress(), node.getSequenceNumber());
             final boolean success = Outbox.sendMessage(message, destAddress);
 
             if (success) {
                 node.neighbors.add(new Address(neighbor));
-                log.debug("Neighbor added: " + neighbor);
+                System.out.println("Neighbor added: " + neighbor);
             }
         });
 
-        log.debug("Node initialized");
+        System.out.println("Node initialized");
         return node;
     }
 
     public void startNode() {
-        log.debug("Starting node");
+        System.out.println("Starting node");
 
         final Thread dispatcherThread = new Thread(new Dispatcher(hostAddress.getPort(), 100));
         dispatcherThread.start();

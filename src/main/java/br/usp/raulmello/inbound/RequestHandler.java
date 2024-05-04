@@ -2,12 +2,10 @@ package br.usp.raulmello.inbound;
 
 import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.utils.Operation;
-import lombok.extern.log4j.Log4j;
 
 import java.io.*;
 import java.net.Socket;
 
-@Log4j
 public class RequestHandler implements Runnable {
     private final Socket clientSocket;
 
@@ -25,7 +23,7 @@ public class RequestHandler implements Runnable {
             final Message message = Message.fromString((String) in.readObject());
 
             if (message == null) {
-                log.error("Message is null");
+                System.out.println("Message is null");
                 return;
             }
 
