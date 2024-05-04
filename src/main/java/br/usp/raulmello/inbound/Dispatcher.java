@@ -1,5 +1,7 @@
 package br.usp.raulmello.inbound;
 
+import br.usp.raulmello.ui.Logger;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,16 +19,16 @@ public class Dispatcher implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Dispatcher started");
+        Logger.debug("Dispatcher started");
         try {
             final ServerSocket serverSocket = new ServerSocket(port);
-            System.out.println("Listening for connections on port " + port);
+            Logger.debug("Listening for connections on port {}", port);
 
             final ExecutorService executor = Executors.newFixedThreadPool(maxThreads);
 
             while (true) {
                 final Socket client = serverSocket.accept();
-                System.out.println("Accepted connection from " + client.getRemoteSocketAddress());
+                Logger.debug("Accepted connection from {}", client.getRemoteSocketAddress());
 
                 final Runnable handler = new RequestHandler(client);
                 executor.execute(handler);

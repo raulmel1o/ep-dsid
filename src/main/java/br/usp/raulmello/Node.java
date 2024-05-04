@@ -1,6 +1,7 @@
 package br.usp.raulmello;
 
 import br.usp.raulmello.inbound.Dispatcher;
+import br.usp.raulmello.ui.Logger;
 import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.outbound.Outbox;
 import br.usp.raulmello.utils.Address;
@@ -35,23 +36,23 @@ public class Node {
         final Node node = new Node(hostAddress, hostPort, values);
 
         neighbors.forEach(neighbor -> {
-            System.out.println("Trying to HELLO neighbor: " + neighbor);
+            Logger.debug("Trying to HELLO neighbor: {}", neighbor);
             final Address destAddress = new Address(neighbor);
             final Message message = createHelloMessage(node.getHostAddress(), node.getSequenceNumber());
             final boolean success = Outbox.sendMessage(message, destAddress);
 
             if (success) {
                 node.neighbors.add(new Address(neighbor));
-                System.out.println("Neighbor added: " + neighbor);
+                Logger.debug("Neighbor added: {}", neighbor);
             }
         });
 
-        System.out.println("Node initialized");
+        Logger.debug("Node initialized");
         return node;
     }
 
     public void startNode() {
-        System.out.println("Starting node");
+        Logger.debug("Starting node");
 
         final Thread dispatcherThread = new Thread(new Dispatcher(hostAddress.getPort(), 100));
         dispatcherThread.start();

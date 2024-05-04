@@ -1,5 +1,6 @@
 package br.usp.raulmello.inbound;
 
+import br.usp.raulmello.ui.Logger;
 import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.utils.Operation;
 
@@ -23,7 +24,7 @@ public class RequestHandler implements Runnable {
             final Message message = Message.fromString((String) in.readObject());
 
             if (message == null) {
-                System.out.println("Message is null");
+                Logger.debug("Message is null");
                 return;
             }
 
