@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add timeout to hello messages">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: create logger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/ParametersFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.Test1.executor": "Debug",
     "JAR Application.ep-dsid-1.0-SNAPSHOT.jar.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
@@ -84,7 +83,7 @@
       <recent name="br.usp.raulmello" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Test1">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -95,6 +94,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="localhost 8080 $PROJECT_DIR$/../dsid-tests/neighbors1.txt lista_chave_valor.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,6 +149,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test1" />
       <item itemvalue="JAR Application.ep-dsid-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
       <item itemvalue="JUnit.MessageTest" />
@@ -233,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714833365462</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: create logger">
+      <option name="closed" value="true" />
+      <created>1714834601472</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714834601472</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +275,19 @@
     <MESSAGE value="fix some break code, create hello response" />
     <MESSAGE value="remove log4j create jar" />
     <MESSAGE value="feat: add timeout to hello messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add timeout to hello messages" />
+    <MESSAGE value="feat: create logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create logger" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/ParametersFileReader.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
