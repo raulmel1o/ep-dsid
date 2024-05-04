@@ -1,6 +1,7 @@
 package br.usp.raulmello.outbound;
 
 import br.usp.raulmello.utils.Address;
+import br.usp.raulmello.utils.Message;
 import lombok.extern.log4j.Log4j;
 
 import java.io.*;

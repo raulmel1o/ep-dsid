@@ -1,7 +1,7 @@
 package outbound;
 
 import br.usp.raulmello.utils.Address;
-import br.usp.raulmello.outbound.Message;
+import br.usp.raulmello.utils.Message;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

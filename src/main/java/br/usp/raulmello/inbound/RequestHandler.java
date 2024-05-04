@@ -1,6 +1,6 @@
 package br.usp.raulmello.inbound;
 
-import br.usp.raulmello.outbound.Message;
+import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.utils.Operation;
 import lombok.extern.log4j.Log4j;
 
@@ -32,6 +32,11 @@ public class RequestHandler implements Runnable {
             if (message.getOperation().equals(Operation.HELLO)) {
                 out.writeObject("HELLO_OK");
             }
+
+            if (message.getOperation().equals(Operation.SEARCH)) {
+
+            }
+
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

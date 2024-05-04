@@ -1,7 +1,5 @@
-package br.usp.raulmello.outbound;
+package br.usp.raulmello.utils;
 
-import br.usp.raulmello.utils.Address;
-import br.usp.raulmello.utils.Operation;
 import lombok.Builder;
 import lombok.Getter;
 

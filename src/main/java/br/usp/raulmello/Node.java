@@ -1,7 +1,7 @@
 package br.usp.raulmello;
 
 import br.usp.raulmello.inbound.Dispatcher;
-import br.usp.raulmello.outbound.Message;
+import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.outbound.Outbox;
 import br.usp.raulmello.utils.Address;
 import lombok.Getter;
@@ -13,9 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import static br.usp.raulmello.outbound.MessageFactory.createHelloMessage;
-import static br.usp.raulmello.ui.MenuWriter.showInitialMenu;
-import static br.usp.raulmello.ui.MenuWriter.showNeighbors;
+import static br.usp.raulmello.ui.MenuWriter.*;
+import static br.usp.raulmello.utils.MessageFactory.createHelloMessage;
 
 @Log4j
 @Getter
@@ -79,6 +78,17 @@ public class Node {
                 final Message message = createHelloMessage(this.getHostAddress(), this.sequenceNumber);
                 Outbox.sendMessage(message, neighbor);
                 this.sequenceNumber++;
+            }
+
+            if (inputOption.equals("2")) {
+                showKeyInput();
+                final String key = scanner.nextLine();
+
+                if (this.values.containsKey(key)) {
+                    showKeyIsInLocalStorage(key, this.values.get(key));
+                } else {
+                    // sendSearchMessage()
+                }
             }
 
             if (inputOption.equals("9")) break;

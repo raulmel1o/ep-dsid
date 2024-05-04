@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix hello response value">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix some break code, create hello response">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/UiHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vizinhos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +166,7 @@
       <workItem from="1713819271085" duration="6430000" />
       <workItem from="1713904619665" duration="1840000" />
       <workItem from="1714568902497" duration="18593000" />
-      <workItem from="1714737978623" duration="4985000" />
+      <workItem from="1714737978623" duration="6911000" />
     </task>
     <task id="LOCAL-00001" summary="move packages here and there, handle connections">
       <option name="closed" value="true" />
@@ -200,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714769426740</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix some break code, create hello response">
+      <option name="closed" value="true" />
+      <created>1714772134260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714772134260</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +231,7 @@
     <MESSAGE value="deleting not ignored sonarlint files" />
     <MESSAGE value="print menu after dispatcher runs" />
     <MESSAGE value="fix hello response value" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix hello response value" />
+    <MESSAGE value="fix some break code, create hello response" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some break code, create hello response" />
   </component>
 </project>

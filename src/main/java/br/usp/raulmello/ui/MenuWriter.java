@@ -34,4 +34,15 @@ public class MenuWriter {
 
         System.out.println(sb);
     }
+
+    public static void showKeyInput() {
+        System.out.println("Digite a chave a ser buscada");
+    }
+
+    public static void showKeyIsInLocalStorage(final String key, final String value) {
+        final String sb = "Valor na tabela local!\n\tchave: " +
+                key + " valor: " + value + "\n";
+
+        System.out.println(sb);
+    }
 }
