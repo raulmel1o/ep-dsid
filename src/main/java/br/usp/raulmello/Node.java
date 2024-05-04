@@ -54,7 +54,7 @@ public class Node {
     public void startNode() {
         Logger.debug("Starting node");
 
-        final Thread dispatcherThread = new Thread(new Dispatcher(hostAddress.getPort(), 100));
+        final Thread dispatcherThread = new Thread(new Dispatcher(hostAddress.getPort(), 100, this));
         dispatcherThread.start();
 
         handleUserInput();

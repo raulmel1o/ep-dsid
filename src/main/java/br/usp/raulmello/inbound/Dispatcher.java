@@ -1,5 +1,6 @@
 package br.usp.raulmello.inbound;
 
+import br.usp.raulmello.Node;
 import br.usp.raulmello.ui.Logger;
 
 import java.io.IOException;
@@ -12,9 +13,12 @@ public class Dispatcher implements Runnable {
     private final int port;
     private final int maxThreads;
 
-    public Dispatcher(final int port, final int maxThreads) {
+    private final Node context;
+
+    public Dispatcher(final int port, final int maxThreads, final Node context) {
         this.port = port;
         this.maxThreads = maxThreads;
+        this.context = context;
     }
 
     @Override
@@ -30,7 +34,7 @@ public class Dispatcher implements Runnable {
                 final Socket client = serverSocket.accept();
                 Logger.debug("Accepted connection from {}", client.getRemoteSocketAddress());
 
-                final Runnable handler = new RequestHandler(client);
+                final Runnable handler = new RequestHandler(client, this.context);
                 executor.execute(handler);
             }
         } catch (IOException e) {

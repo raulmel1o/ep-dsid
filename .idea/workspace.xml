@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: create logger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add support for absolute file paths">
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/ParametersFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714834601472</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: add support for absolute file paths">
+      <option name="closed" value="true" />
+      <created>1714836676200</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714836676200</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,18 +282,8 @@
     <MESSAGE value="remove log4j create jar" />
     <MESSAGE value="feat: add timeout to hello messages" />
     <MESSAGE value="feat: create logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create logger" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/ParametersFileReader.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat: add support for absolute file paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add support for absolute file paths" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
