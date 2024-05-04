@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix some break code, create hello response">
-      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="remove log4j create jar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +45,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "JAR Application.ep-dsid-1.0-SNAPSHOT.jar.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
@@ -87,7 +79,7 @@
       <recent name="br.usp.raulmello" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.ep-dsid-1.0-SNAPSHOT.jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -220,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714772134260</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="remove log4j create jar">
+      <option name="closed" value="true" />
+      <created>1714832570405</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714832570405</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +244,8 @@
     <MESSAGE value="print menu after dispatcher runs" />
     <MESSAGE value="fix hello response value" />
     <MESSAGE value="fix some break code, create hello response" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some break code, create hello response" />
+    <MESSAGE value="remove log4j create jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove log4j create jar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
