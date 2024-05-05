@@ -53,7 +53,9 @@ public class SearchHandler extends AbstractHandler {
         }
 
         final List<String> oldArgs = message.getArgs();
-        message.setArgs(List.of(oldArgs.get(0), oldArgs.get(1), oldArgs.get(2), Integer.toString(hopCount + 1)));
+        final int hostPort = nodeContext.getHostAddress().getPort();
+        // LAST_HOP_PORT should contain value from the message sender or from the searcher?
+        message.setArgs(List.of(oldArgs.get(0), Integer.toString(hostPort), oldArgs.get(2), Integer.toString(hopCount + 1)));
         Outbox.sendMessage(message, nodeContext.getNeighbors().stream()
                 .filter(neighbor -> !neighbor.equals(message.getOrigin())).toList());
     }
