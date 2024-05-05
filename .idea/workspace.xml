@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add factory method for random walk">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add random walk search">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/NodeStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -326,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714878237727</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat: add random walk search">
+      <option name="closed" value="true" />
+      <created>1714879463037</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714879463037</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +367,8 @@
     <MESSAGE value="feat: implement flooding search (not tested yet)" />
     <MESSAGE value="fix: update LAST_HOP_PORT value" />
     <MESSAGE value="feat: add factory method for random walk" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add factory method for random walk" />
+    <MESSAGE value="feat: add random walk search" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add random walk search" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

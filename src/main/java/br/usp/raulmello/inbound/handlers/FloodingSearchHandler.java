@@ -25,6 +25,7 @@ public class FloodingSearchHandler extends AbstractHandler {
         }
 
         trackMessage(message.getOrigin(), message.getSequenceNumber());
+        nodeContext.getNodeStats().incrementFloodingSearchMessageAmount();
 
         final String key = message.getArgs().get(2);
         final int hopCount = Integer.parseInt(message.getArgs().get(3));

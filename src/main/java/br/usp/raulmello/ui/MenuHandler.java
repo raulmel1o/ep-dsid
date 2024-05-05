@@ -32,6 +32,8 @@ public class MenuHandler {
                 case "1" -> handleHello();
                 case "2" -> handleFloodingSearch();
                 case "3" -> handleRandomWalkSearch();
+                case "4" -> handleDepthFirstSearch();
+                case "5" -> handleStats();
                 case "9" -> running = false;
                 default -> Logger.debug("Invalid option: {}", inputOption);
             }
@@ -71,5 +73,19 @@ public class MenuHandler {
             Outbox.sendMessage(message, selectedNeighbor);
             nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
         }
+    }
+
+    private void handleDepthFirstSearch() {
+        // TODO
+        showKeyInput();
+        final String key = scanner.nextLine();
+
+        if (nodeContext.getValues().containsKey(key)) {
+            showKeyIsInLocalStorage(key, nodeContext.getValues().get(key));
+        }
+    }
+
+    private void handleStats() {
+        Logger.info(nodeContext.getNodeStats().toString());
     }
 }

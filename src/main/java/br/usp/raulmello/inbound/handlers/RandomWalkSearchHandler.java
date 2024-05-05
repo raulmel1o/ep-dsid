@@ -23,6 +23,8 @@ public class RandomWalkSearchHandler extends AbstractHandler {
 
     @Override
     public void run() {
+        nodeContext.getNodeStats().incrementRandomWalkSearchMessageAmount();
+
         final String key = message.getArgs().get(2);
         final int hopCount = Integer.parseInt(message.getArgs().get(3));
         if (nodeContext.getValues().containsKey(key)) {

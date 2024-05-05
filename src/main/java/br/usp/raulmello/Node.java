@@ -6,6 +6,7 @@ import br.usp.raulmello.ui.MenuHandler;
 import br.usp.raulmello.utils.Message;
 import br.usp.raulmello.outbound.Outbox;
 import br.usp.raulmello.utils.Address;
+import br.usp.raulmello.utils.NodeStats;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +24,7 @@ public class Node {
     private List<Address> neighbors;
     private Map<String, String> values;
     private Map<Address, Integer> sequenceNumberTracker;
+    private NodeStats nodeStats;
     private int sequenceNumber;
     private int ttl;
 
