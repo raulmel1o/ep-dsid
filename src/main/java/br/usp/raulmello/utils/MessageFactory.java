@@ -35,6 +35,13 @@ public class MessageFactory {
                 .build();
     }
 
+    public static Message createByeMessage(final Address origin, final int sequenceNumber) {
+        return Message.builder()
+                .origin(origin).sequenceNumber(sequenceNumber)
+                .ttl(1).operation(BYE)
+                .build();
+    }
+
     private static Message.MessageBuilder createSearchMessage(final Address origin, final int sequenceNumber, final int ttl) {
         return Message.builder()
                 .origin(origin).sequenceNumber(sequenceNumber)

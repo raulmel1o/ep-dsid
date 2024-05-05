@@ -17,12 +17,13 @@ public class MenuHandler {
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new Random();
 
+    private boolean running = true;
+
     public MenuHandler(final Node nodeContext) {
         this.nodeContext = nodeContext;
     }
 
     public void handle() {
-        boolean running = true;
         while (running) {
             showInitialMenu();
             final String inputOption = scanner.nextLine();
@@ -35,7 +36,7 @@ public class MenuHandler {
                 case "4" -> handleDepthFirstSearch();
                 case "5" -> handleStats();
                 case "6" -> handleUpdateDefaultTtl();
-                case "9" -> running = false;
+                case "9" -> handleExit();
                 default -> Logger.debug("Invalid option: {}", inputOption);
             }
         }
@@ -95,5 +96,13 @@ public class MenuHandler {
         final String ttl = scanner.nextLine();
 
         nodeContext.setTtl(Integer.parseInt(ttl));
+    }
+
+    private void handleExit() {
+        showExitText();
+
+        final Message message = createByeMessage(nodeContext.getHostAddress(), nodeContext.getSequenceNumber());
+        Outbox.sendMessage(message, nodeContext.getNeighbors());
+        running = false;
     }
 }

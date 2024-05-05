@@ -49,4 +49,8 @@ public class MenuWriter {
     public static void showDefaultTtlInput() {
         System.out.println("Digite novo valor de TTL ");
     }
+
+    public static void showExitText() {
+        System.out.println("Voce escolheu 9\nSaindo...");
+    }
 }

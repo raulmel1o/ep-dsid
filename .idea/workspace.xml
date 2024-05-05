@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: create node stats (WIP)">
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: handle change default ttl">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/ByeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714880503656</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: handle change default ttl">
+      <option name="closed" value="true" />
+      <created>1714880983222</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714880983222</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +385,8 @@
     <MESSAGE value="feat: add factory method for random walk" />
     <MESSAGE value="feat: add random walk search" />
     <MESSAGE value="feat: create node stats (WIP)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create node stats (WIP)" />
+    <MESSAGE value="feat: handle change default ttl" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: handle change default ttl" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
