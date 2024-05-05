@@ -12,8 +12,8 @@ import java.util.List;
 
 import static br.usp.raulmello.utils.MessageFactory.createValMessage;
 
-public class SearchHandler extends AbstractHandler {
-    public SearchHandler(final Socket clientSocket, final Node nodeContext, final Message message) {
+public class FloodingSearchHandler extends AbstractHandler {
+    public FloodingSearchHandler(final Socket clientSocket, final Node nodeContext, final Message message) {
         super(clientSocket, nodeContext, message);
     }
 

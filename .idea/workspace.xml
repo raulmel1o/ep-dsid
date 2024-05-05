@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: implement flooding search (not tested yet)">
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add factory method for random walk">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +310,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714877604234</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix: update LAST_HOP_PORT value">
+      <option name="closed" value="true" />
+      <created>1714878193810</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714878193810</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: add factory method for random walk">
+      <option name="closed" value="true" />
+      <created>1714878237727</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714878237727</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +357,9 @@
     <MESSAGE value="fix: hello message handler" />
     <MESSAGE value="fix: move logic to handlers" />
     <MESSAGE value="feat: implement flooding search (not tested yet)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: implement flooding search (not tested yet)" />
+    <MESSAGE value="fix: update LAST_HOP_PORT value" />
+    <MESSAGE value="feat: add factory method for random walk" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add factory method for random walk" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

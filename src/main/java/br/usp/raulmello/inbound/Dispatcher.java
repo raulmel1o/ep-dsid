@@ -2,7 +2,8 @@ package br.usp.raulmello.inbound;
 
 import br.usp.raulmello.Node;
 import br.usp.raulmello.inbound.handlers.HelloHandler;
-import br.usp.raulmello.inbound.handlers.SearchHandler;
+import br.usp.raulmello.inbound.handlers.FloodingSearchHandler;
+import br.usp.raulmello.inbound.handlers.RandomWalkSearchHandler;
 import br.usp.raulmello.inbound.handlers.ValHandler;
 import br.usp.raulmello.ui.Logger;
 import br.usp.raulmello.utils.Message;
@@ -43,8 +44,14 @@ public class Dispatcher implements Runnable {
                 if (message != null) {
                     switch (message.getOperation()) {
                         case HELLO -> executor.execute(new HelloHandler(client, context, message));
-                        case SEARCH -> executor.execute(new SearchHandler(client, context, message));
                         case VAL -> executor.execute(new ValHandler(client, context, message));
+                        case SEARCH -> {
+                            if (message.getArgs().get(0).equalsIgnoreCase("FL")) {
+                                executor.execute(new FloodingSearchHandler(client, context, message));
+                            } else if (message.getArgs().get(0).equalsIgnoreCase("RW")) {
+                                executor.execute(new RandomWalkSearchHandler(client, context, message));
+                            }
+                        }
                         default -> Logger.debug("Unkown operation {}", message.getOperation());
                     }
                 }
