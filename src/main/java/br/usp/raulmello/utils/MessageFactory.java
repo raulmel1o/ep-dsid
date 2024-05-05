@@ -1,7 +1,8 @@
 package br.usp.raulmello.utils;
 
-import static br.usp.raulmello.utils.Operation.HELLO;
-import static br.usp.raulmello.utils.Operation.SEARCH;
+import java.util.List;
+
+import static br.usp.raulmello.utils.Operation.*;
 
 public class MessageFactory {
 
@@ -14,10 +15,19 @@ public class MessageFactory {
                 .build();
     }
 
-    public static Message createSearchFloodingMessage(final Address origin, final int sequenceNumber, final int ttl) {
+    public static Message createSearchFloodingMessage(final String key, final Address origin, final int sequenceNumber, final int ttl, final int hopCount) {
         return Message.builder()
                 .origin(origin).sequenceNumber(sequenceNumber)
                 .ttl(ttl).operation(SEARCH)
+                .args(List.of("FL", Integer.toString(origin.getPort()), key, Integer.toString(hopCount)))
+                .build();
+    }
+
+    public static Message createValMessage(final Address origin, final int sequenceNumber, final int ttl, final String searchMode, final String key, final String value, final int hopCount) {
+        return Message.builder()
+                .origin(origin).sequenceNumber(sequenceNumber)
+                .ttl(ttl).operation(VAL)
+                .args(List.of(searchMode, key, value, Integer.toString(hopCount)))
                 .build();
     }
 }

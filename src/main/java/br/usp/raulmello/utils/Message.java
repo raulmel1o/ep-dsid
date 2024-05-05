@@ -2,13 +2,12 @@ package br.usp.raulmello.utils;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Getter
+@Setter
 @Builder
 public class Message {
     private Address origin;

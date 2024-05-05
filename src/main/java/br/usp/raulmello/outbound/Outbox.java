@@ -8,23 +8,15 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Outbox {
 
     private Outbox() {}
 
-    public static boolean sendMessage(final Message message, final List<Address> destinations) {
+    public static void sendMessage(final Message message, final List<Address> destinations) {
         // Question: how to handle failures on searches?
-        final Map<Address, Boolean> results = new HashMap<>();
-        destinations.forEach(address -> {
-            final boolean result = sendMessage(message, address);
-            results.put(address, result);
-        });
-
-        return true;
+        destinations.forEach(address -> sendMessage(message, address));
     }
 
     public static boolean sendMessage(final Message message, final Address destination) {

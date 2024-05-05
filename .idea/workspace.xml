@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix: hello message handler">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/HelloHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix: move logic to handlers">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/AbstractHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/HelloHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/HelloHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714837140422</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: move logic to handlers">
+      <option name="closed" value="true" />
+      <created>1714872560939</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714872560939</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +334,8 @@
     <MESSAGE value="feat: create logger" />
     <MESSAGE value="feat: add support for absolute file paths" />
     <MESSAGE value="fix: hello message handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: hello message handler" />
+    <MESSAGE value="fix: move logic to handlers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: move logic to handlers" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

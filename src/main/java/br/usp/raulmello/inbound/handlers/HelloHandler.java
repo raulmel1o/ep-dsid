@@ -8,15 +8,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class HelloHandler implements Runnable {
-    private final Socket clientSocket;
-    private final Node nodeContext;
-    private final Message message;
-
+public class HelloHandler extends AbstractHandler {
     public HelloHandler(final Socket clientSocket, final Node nodeContext, final Message message) {
-        this.clientSocket = clientSocket;
-        this.nodeContext = nodeContext;
-        this.message = message;
+        super(clientSocket, nodeContext, message);
     }
 
     @Override
@@ -28,6 +22,8 @@ public class HelloHandler implements Runnable {
             nodeContext.getNeighbors().add(message.getOrigin());
             Logger.info("Adicionando vizinho na tabela: {}", message.getOrigin());
         }
+
+        trackMessage(message.getOrigin(), message.getSequenceNumber());
 
         try {
             final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
