@@ -51,7 +51,7 @@ public class MenuHandler {
         if (nodeContext.getValues().containsKey(key)) {
             showKeyIsInLocalStorage(key, nodeContext.getValues().get(key));
         } else {
-            final Message message = createSearchFloodingMessage(key, nodeContext.getHostAddress(), nodeContext.getSequenceNumber(), nodeContext.getTtl(), 1);
+            final Message message = createSearchFloodingMessage(key, nodeContext.getHostAddress(), nodeContext.getSequenceNumber(), nodeContext.getTtl());
             Outbox.sendMessage(message, nodeContext.getNeighbors());
             nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
         }

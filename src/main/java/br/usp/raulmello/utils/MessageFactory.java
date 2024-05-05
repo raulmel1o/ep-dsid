@@ -15,11 +15,15 @@ public class MessageFactory {
                 .build();
     }
 
-    public static Message createSearchFloodingMessage(final String key, final Address origin, final int sequenceNumber, final int ttl, final int hopCount) {
-        return Message.builder()
-                .origin(origin).sequenceNumber(sequenceNumber)
-                .ttl(ttl).operation(SEARCH)
-                .args(List.of("FL", Integer.toString(origin.getPort()), key, Integer.toString(hopCount)))
+    public static Message createSearchFloodingMessage(final String key, final Address origin, final int sequenceNumber, final int ttl) {
+        return createSearchMessage(origin, sequenceNumber, ttl)
+                .args(List.of("FL", Integer.toString(origin.getPort()), key, Integer.toString(1)))
+                .build();
+    }
+
+    public static Message createSearchRandomWalkMessage(final String key, final Address origin, final int sequenceNumber, final int ttl) {
+        return createSearchMessage(origin, sequenceNumber, ttl)
+                .args(List.of("RW", Integer.toString(origin.getPort()), key, Integer.toString(1)))
                 .build();
     }
 
@@ -29,5 +33,11 @@ public class MessageFactory {
                 .ttl(ttl).operation(VAL)
                 .args(List.of(searchMode, key, value, Integer.toString(hopCount)))
                 .build();
+    }
+
+    private static Message.MessageBuilder createSearchMessage(final Address origin, final int sequenceNumber, final int ttl) {
+        return Message.builder()
+                .origin(origin).sequenceNumber(sequenceNumber)
+                .ttl(ttl).operation(SEARCH);
     }
 }
