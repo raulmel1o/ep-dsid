@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 import static br.usp.raulmello.ui.MenuWriter.*;
 import static br.usp.raulmello.utils.MessageFactory.createHelloMessage;
+import static br.usp.raulmello.utils.MessageFactory.createSearchFloodingMessage;
 
 @Getter
 @Setter
@@ -25,11 +26,14 @@ public class Node {
     private Map<String, String> values;
 
     private int sequenceNumber;
+    private int ttl;
 
     private Node(final String hostAddress, final int hostPort, final Map<String, String> values) {
         this.hostAddress = new Address(hostAddress, hostPort);
         this.neighbors = new ArrayList<>();
         this.values = values;
+        this.sequenceNumber = 0;
+        this.ttl = 100;
     }
 
     public static Node initNode(final String hostAddress, final int hostPort, final Map<String, String> values, final List<String> neighbors) {
@@ -86,6 +90,9 @@ public class Node {
                 if (this.values.containsKey(key)) {
                     showKeyIsInLocalStorage(key, this.values.get(key));
                 } else {
+                    final Message message = createSearchFloodingMessage(this.hostAddress, this.sequenceNumber, this.ttl);
+                    Outbox.sendMessage(message,  this.neighbors);
+                    this.sequenceNumber++;
                     // sendSearchMessage()
                 }
             }

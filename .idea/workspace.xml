@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add support for absolute file paths">
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="fix: hello message handler">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/HelloHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/SearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/outbound/MessageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +58,7 @@
     "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage.executor": "Run",
+    "JUnit.MessageTest.GivenSearchFLString_WhenFromString_ThenShouldParseMessage.executor": "Run",
     "JUnit.MessageTest.executor": "Run",
     "Maven.ep-dsid [org.apache.maven.plugins:maven-assembly-plugin:3.6.0:single].executor": "Run",
     "Maven.ep-dsid [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
@@ -81,7 +88,7 @@
       <recent name="br.usp.raulmello" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -139,6 +146,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessageTest.GivenSearchFLString_WhenFromString_ThenShouldParseMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ep-dsid" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="outbound.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="outbound" />
+      <option name="MAIN_CLASS_NAME" value="outbound.MessageTest" />
+      <option name="METHOD_NAME" value="GivenSearchFLString_WhenFromString_ThenShouldParseMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ep-dsid-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/ep-dsid-1.0-SNAPSHOT.jar" />
       <option name="PROGRAM_PARAMETERS" value="localhost 8080 vizinhos.txt lista_chave_valor.txt" />
@@ -149,14 +172,16 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Test1" />
       <item itemvalue="JAR Application.ep-dsid-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JUnit.MessageTest.GivenSearchFLString_WhenFromString_ThenShouldParseMessage" />
       <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
       <item itemvalue="JUnit.MessageTest" />
       <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.ep-dsid-1.0-SNAPSHOT.jar" />
         <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
+        <item itemvalue="JUnit.MessageTest.GivenSearchFLString_WhenFromString_ThenShouldParseMessage" />
+        <item itemvalue="JAR Application.ep-dsid-1.0-SNAPSHOT.jar" />
         <item itemvalue="JUnit.MessageTest" />
         <item itemvalue="JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull" />
       </list>
@@ -255,7 +280,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714836676200</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: hello message handler">
+      <option name="closed" value="true" />
+      <created>1714837098650</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714837098651</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: hello message handler">
+      <option name="closed" value="true" />
+      <created>1714837140422</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714837140422</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +324,8 @@
     <MESSAGE value="feat: add timeout to hello messages" />
     <MESSAGE value="feat: create logger" />
     <MESSAGE value="feat: add support for absolute file paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add support for absolute file paths" />
+    <MESSAGE value="fix: hello message handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: hello message handler" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
