@@ -34,6 +34,7 @@ public class MenuHandler {
                 case "3" -> handleRandomWalkSearch();
                 case "4" -> handleDepthFirstSearch();
                 case "5" -> handleStats();
+                case "6" -> handleUpdateDefaultTtl();
                 case "9" -> running = false;
                 default -> Logger.debug("Invalid option: {}", inputOption);
             }
@@ -87,5 +88,12 @@ public class MenuHandler {
 
     private void handleStats() {
         Logger.info(nodeContext.getNodeStats().toString());
+    }
+
+    private void handleUpdateDefaultTtl() {
+        showDefaultTtlInput();
+        final String ttl = scanner.nextLine();
+
+        nodeContext.setTtl(Integer.parseInt(ttl));
     }
 }

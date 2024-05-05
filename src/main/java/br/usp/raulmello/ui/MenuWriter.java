@@ -45,4 +45,8 @@ public class MenuWriter {
 
         System.out.println(sb);
     }
+
+    public static void showDefaultTtlInput() {
+        System.out.println("Digite novo valor de TTL ");
+    }
 }

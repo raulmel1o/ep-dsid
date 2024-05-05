@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: add random walk search">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/NodeStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/FloodingSearchHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/RandomWalkSearchHandler.java" afterDir="false" />
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: create node stats (WIP)">
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714879463037</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: create node stats (WIP)">
+      <option name="closed" value="true" />
+      <created>1714880503656</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714880503656</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +372,8 @@
     <MESSAGE value="fix: update LAST_HOP_PORT value" />
     <MESSAGE value="feat: add factory method for random walk" />
     <MESSAGE value="feat: add random walk search" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add random walk search" />
+    <MESSAGE value="feat: create node stats (WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create node stats (WIP)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
