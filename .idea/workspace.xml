@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: handle change default ttl">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/ByeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/DepthFirstSearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/Dispatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/MenuWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/MessageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -86,7 +86,7 @@
       <recent name="br.usp.raulmello" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage">
+  <component name="RunManager" selected="Application.Test1">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -104,7 +104,7 @@
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
-      <option name="PROGRAM_PARAMETERS" value="localhost 8080 $PROJECT_DIR$/../dsid-tests/neighbors1.txt lista_chave_valor.txt" />
+      <option name="PROGRAM_PARAMETERS" value="localhost 8081 $PROJECT_DIR$/../dsid-tests/neighbors1.txt lista_chave_valor.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,6 +205,10 @@
       <workItem from="1713904619665" duration="1840000" />
       <workItem from="1714568902497" duration="18593000" />
       <workItem from="1714737978623" duration="6911000" />
+      <workItem from="1715034301801" duration="42000" />
+      <workItem from="1715040360664" duration="4000000" />
+      <workItem from="1715361664932" duration="7000" />
+      <workItem from="1716580431819" duration="6435000" />
     </task>
     <task id="LOCAL-00001" summary="move packages here and there, handle connections">
       <option name="closed" value="true" />

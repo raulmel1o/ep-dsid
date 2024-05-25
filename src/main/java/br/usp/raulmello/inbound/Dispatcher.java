@@ -47,6 +47,8 @@ public class Dispatcher implements Runnable {
                                 executor.execute(new FloodingSearchHandler(client, context, message));
                             } else if (message.getArgs().get(0).equalsIgnoreCase("RW")) {
                                 executor.execute(new RandomWalkSearchHandler(client, context, message));
+                            } else if (message.getArgs().get(0).equalsIgnoreCase("BP")) {
+                                executor.execute(new DepthFirstSearchHandler(client, context, message));
                             }
                         }
                         case BYE -> executor.execute(new ByeHandler(context, message));

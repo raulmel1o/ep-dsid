@@ -5,6 +5,7 @@ import br.usp.raulmello.outbound.Outbox;
 import br.usp.raulmello.utils.Address;
 import br.usp.raulmello.utils.Message;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -78,12 +79,21 @@ public class MenuHandler {
     }
 
     private void handleDepthFirstSearch() {
-        // TODO
         showKeyInput();
         final String key = scanner.nextLine();
 
         if (nodeContext.getValues().containsKey(key)) {
             showKeyIsInLocalStorage(key, nodeContext.getValues().get(key));
+        } else {
+            final Message message = createSearchDepthFirstMessage(key, nodeContext.getHostAddress(), nodeContext.getSequenceNumber(), nodeContext.getTtl());
+
+            final List<Address> availableNeighbors = nodeContext.getNeighbors();
+            final Address selectedNeighbor = nodeContext.getNeighbors().get(random.nextInt(nodeContext.getNeighbors().size()));
+            final Address activeNeighbor = selectedNeighbor;
+            availableNeighbors.remove(selectedNeighbor);
+
+            Outbox.sendMessage(message, selectedNeighbor);
+            nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
         }
     }
 

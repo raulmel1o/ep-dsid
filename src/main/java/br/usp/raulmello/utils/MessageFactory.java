@@ -27,6 +27,12 @@ public class MessageFactory {
                 .build();
     }
 
+    public static Message createSearchDepthFirstMessage(final String key, final Address origin, final int sequenceNumber, final int ttl) {
+        return createSearchMessage(origin, sequenceNumber, ttl)
+                .args(List.of("BP", Integer.toString(origin.getPort()), key, Integer.toString(1)))
+                .build();
+    }
+
     public static Message createValMessage(final Address origin, final int sequenceNumber, final int ttl, final String searchMode, final String key, final String value, final int hopCount) {
         return Message.builder()
                 .origin(origin).sequenceNumber(sequenceNumber)
