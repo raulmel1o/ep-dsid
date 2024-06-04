@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Logger {
 
-    private static final boolean DEBUG_ENABLED = true;
+    private static final boolean DEBUG_ENABLED = false;
 
     private Logger() {}
 

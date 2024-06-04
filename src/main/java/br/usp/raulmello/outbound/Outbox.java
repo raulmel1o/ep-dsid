@@ -27,11 +27,11 @@ public class Outbox {
 
             final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
             out.flush();
-            final ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 
             Logger.info("Encaminhando mensagem: \"{}\" para {}", message, destination);
             out.writeObject(message.toString());
 
+            final ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
             final String response = (String) in.readObject();
             Logger.debug("Got response: {} from {}", response, destination);
 

@@ -38,7 +38,7 @@ public class Message {
                 .origin(new Address(split[0]))
                 .sequenceNumber(Integer.parseInt(split[1]))
                 .ttl(Integer.parseInt(split[2]))
-                .operation(Operation.valueOf(split[3]))
+                .operation(Operation.valueOf(split[3].replace("\n", "")))
                 .args(copyArgsToList(split))
                 .build();
     }
