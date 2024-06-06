@@ -6,10 +6,11 @@ import br.usp.raulmello.utils.Message;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class ByeHandler extends AbstractHandler {
-    public ByeHandler(final Node nodeContext, final Message message) {
-        super(null, nodeContext, message);
+    public ByeHandler(final Socket client, final Node nodeContext, final Message message) {
+        super(client, nodeContext, message);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ByeHandler extends AbstractHandler {
             Logger.debug("Got exception: {}", e.getMessage());
         }
 
-        Logger.info("Mensagem recebida: \"{}\"", message);
+        Logger.info("Mensagem recebida: \"{}\"", message.toString().replace("\n", ""));
         nodeContext.getNeighbors().remove(message.getOrigin());
         Logger.info("Removendo vizinho da tabela {}", message.getOrigin());
     }

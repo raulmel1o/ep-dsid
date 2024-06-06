@@ -51,7 +51,7 @@ public class Dispatcher implements Runnable {
                                 executor.execute(new DepthFirstSearchHandler(client, context, message));
                             }
                         }
-                        case BYE -> executor.execute(new ByeHandler(context, message));
+                        case BYE -> executor.execute(new ByeHandler(client, context, message));
                         default -> Logger.debug("Unkown operation {}", message.getOperation());
                     }
                 }
