@@ -34,7 +34,7 @@ public class Node {
         this.values = values;
         this.sequenceNumberTracker = new HashMap<>();
         this.nodeStats = new NodeStats();
-        this.sequenceNumber = 0;
+        this.sequenceNumber = 1;
         this.ttl = 100;
     }
 
