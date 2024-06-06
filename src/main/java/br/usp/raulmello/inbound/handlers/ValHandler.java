@@ -13,7 +13,9 @@ public class ValHandler extends AbstractHandler {
 
     @Override
     public void run() {
-        Logger.info("Valor encontrado! Chave: {} valor: {}", message.getArgs().get(1), message.getArgs().get(2));
+        Logger.info("Mensagem recebida: \"{}\"", message.toString().replace("\n", ""));
+        Logger.info("\tValor encontrado!");
+        Logger.info("\t\tchave: {} valor: {}", message.getArgs().get(1), message.getArgs().get(2));
         trackMessage(message.getOrigin(), message.getSequenceNumber());
     }
 }
