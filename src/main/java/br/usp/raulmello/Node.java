@@ -33,6 +33,7 @@ public class Node {
         this.neighbors = new ArrayList<>();
         this.values = values;
         this.sequenceNumberTracker = new HashMap<>();
+        this.nodeStats = new NodeStats();
         this.sequenceNumber = 0;
         this.ttl = 100;
     }
