@@ -28,6 +28,6 @@ public abstract class AbstractHandler implements Runnable {
     }
 
     protected void decrementMessageTtl(final Message message) {
-        message.setSequenceNumber(message.getSequenceNumber() - 1);
+        message.setTtl(message.getTtl() - 1);
     }
 }
