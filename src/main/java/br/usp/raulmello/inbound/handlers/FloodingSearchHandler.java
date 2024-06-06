@@ -19,11 +19,6 @@ public class FloodingSearchHandler extends AbstractHandler {
 
     @Override
     public void run() {
-        if (verifyMessageAlreadyProcessed(message.getOrigin(), message.getSequenceNumber())) {
-            Logger.info("Flooding: Mensagem repetida!");
-            return;
-        }
-
         try {
             final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
             out.flush();
@@ -31,6 +26,11 @@ public class FloodingSearchHandler extends AbstractHandler {
 
         } catch (IOException e) {
             Logger.debug("Got exception: {}", e.getMessage());
+        }
+
+        if (verifyMessageAlreadyProcessed(message.getOrigin(), message.getSequenceNumber())) {
+            Logger.info("Flooding: Mensagem repetida!");
+            return;
         }
 
         trackMessage(message.getOrigin(), message.getSequenceNumber());
