@@ -15,12 +15,12 @@ public class HelloHandler extends AbstractHandler {
 
     @Override
     public void run() {
-        Logger.info("Mensagem recebida: \"{}\"", message);
+        Logger.info("Mensagem recebida: \"{}\"", message.toString().replace("\n", ""));
         if (nodeContext.getNeighbors().contains(message.getOrigin())) {
-            Logger.info("Vizinho ja esta na tabela: {}", message.getOrigin());
+            Logger.info("\tVizinho ja esta na tabela: {}\n", message.getOrigin());
         } else {
             nodeContext.getNeighbors().add(message.getOrigin());
-            Logger.info("Adicionando vizinho na tabela: {}", message.getOrigin());
+            Logger.info("\tAdicionando vizinho na tabela: {}\n", message.getOrigin());
         }
 
         trackMessage(message.getOrigin(), message.getSequenceNumber());

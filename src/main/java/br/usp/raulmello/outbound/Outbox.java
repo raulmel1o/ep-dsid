@@ -12,6 +12,8 @@ import java.util.List;
 
 public class Outbox {
 
+    public static final String CONNECTION_ERROR_MSG = "\tErro ao conectar!";
+
     private Outbox() {}
 
     public static void sendMessage(final Message message, final List<Address> destinations) {
@@ -20,6 +22,7 @@ public class Outbox {
     }
 
     public static boolean sendMessage(final Message message, final Address destination) {
+        Logger.info("Encaminhando mensagem: \"{}\" para {}", message.toString().replace("\n", ""), destination);
         try (final Socket clientSocket = new Socket()) {
             Logger.debug("Connecting to {}", destination);
             clientSocket.connect(new InetSocketAddress(destination.getDomain(), destination.getPort()), 1000);
@@ -27,8 +30,6 @@ public class Outbox {
 
             final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
             out.flush();
-
-            Logger.info("Encaminhando mensagem: \"{}\" para {}", message, destination);
             out.writeObject(message.toString());
 
             final ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
@@ -37,20 +38,25 @@ public class Outbox {
 
             final boolean success = response.equalsIgnoreCase(message.getOperation() + "_OK");
             if (success) {
-                Logger.info("Envio feito com sucesso: \"{}\"", message);
+                Logger.info("\tEnvio feito com sucesso: \"{}\"\n", message.toString().replace("\n", ""));
             }
 
             return success;
 
         } catch (final SocketTimeoutException e) {
             Logger.debug("Connection timed out when connecting to {}", destination);
+            Logger.info(CONNECTION_ERROR_MSG);
             return false;
         } catch (final ClassNotFoundException e) {
             Logger.debug("Could not parse response. Reason: {}", e.getMessage());
+            Logger.info(CONNECTION_ERROR_MSG);
             return false;
         } catch (final IOException e) {
             Logger.debug("IO Exception when creating client socket: {}", e.getMessage());
+            Logger.info(CONNECTION_ERROR_MSG);
             return false;
+        } finally {
+            Logger.info("");
         }
     }
 }
