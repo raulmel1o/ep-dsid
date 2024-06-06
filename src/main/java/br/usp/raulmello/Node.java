@@ -39,9 +39,10 @@ public class Node {
 
     public static Node initNode(final String hostAddress, final int hostPort, final Map<String, String> values, final List<String> neighbors) {
         final Node node = new Node(hostAddress, hostPort, values);
+        Logger.info("Servidor criado: {}:{}\n", hostAddress, hostPort);
 
         neighbors.forEach(neighbor -> {
-            Logger.debug("Trying to HELLO neighbor: {}", neighbor);
+            Logger.info("Tentando adicionar vizinho {}", neighbor);
             final Address destAddress = new Address(neighbor);
             final Message message = createHelloMessage(node.getHostAddress(), node.getSequenceNumber());
             final boolean success = Outbox.sendMessage(message, destAddress);
