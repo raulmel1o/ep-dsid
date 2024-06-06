@@ -47,6 +47,7 @@ public class Node {
             final Address destAddress = new Address(neighbor);
             final Message message = createHelloMessage(node.getHostAddress(), node.getSequenceNumber());
             final boolean success = Outbox.sendMessage(message, destAddress);
+            node.setSequenceNumber(node.getSequenceNumber() + 1);
 
             if (success) {
                 node.neighbors.add(new Address(neighbor));
