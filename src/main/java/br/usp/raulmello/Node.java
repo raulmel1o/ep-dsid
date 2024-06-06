@@ -54,6 +54,8 @@ public class Node {
             }
         });
 
+        values.forEach((key, value) -> Logger.info("Adicionando par ({}, {}) na tabela local\n", key, value));
+
         Logger.debug("Node initialized");
         return node;
     }
