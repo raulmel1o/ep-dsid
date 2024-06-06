@@ -23,25 +23,26 @@ public class RandomWalkSearchHandler extends AbstractHandler {
 
     @Override
     public void run() {
+        try {
+            final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+            out.flush();
+            out.writeObject("SEARCH_OK");
+
+        } catch (IOException e) {
+            Logger.debug("Got exception: {}", e.getMessage());
+        }
+
         nodeContext.getNodeStats().incrementRandomWalkSearchMessageAmount();
 
         final String key = message.getArgs().get(2);
-        final int hopCount = Integer.parseInt(message.getArgs().get(3));
+        final int hopCount = extractHopCountFromMessage(message);
         if (nodeContext.getValues().containsKey(key)) {
             Logger.info("Chave encontrada!");
 
-            try {
-                final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
-                out.flush();
-                final Message responseMessage = createValMessage(nodeContext.getHostAddress(),
-                        nodeContext.getSequenceNumber(), nodeContext.getTtl(), "RW",
-                        key, nodeContext.getValues().get(key), hopCount);
-
-                out.writeObject(responseMessage.toString());
-            } catch (IOException e) {
-                Logger.debug("Got exception: {}", e.getMessage());
-            }
-
+            final Message responseMessage = createValMessage(nodeContext.getHostAddress(),
+                    nodeContext.getSequenceNumber(), nodeContext.getTtl(), "RW",
+                    key, nodeContext.getValues().get(key), hopCount);
+            Outbox.sendMessage(responseMessage, message.getOrigin());
             return;
         }
 

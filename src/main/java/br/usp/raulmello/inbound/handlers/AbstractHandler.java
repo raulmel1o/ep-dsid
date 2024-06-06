@@ -30,4 +30,8 @@ public abstract class AbstractHandler implements Runnable {
     protected void decrementMessageTtl(final Message message) {
         message.setTtl(message.getTtl() - 1);
     }
+
+    protected Integer extractHopCountFromMessage(final Message message) {
+        return Integer.parseInt(message.getArgs().get(3).replace("\n", ""));
+    }
 }

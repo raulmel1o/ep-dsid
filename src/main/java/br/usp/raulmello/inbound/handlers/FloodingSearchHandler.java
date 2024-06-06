@@ -37,7 +37,7 @@ public class FloodingSearchHandler extends AbstractHandler {
         nodeContext.getNodeStats().incrementFloodingSearchMessageAmount();
 
         final String key = message.getArgs().get(2);
-        final int hopCount = Integer.parseInt(message.getArgs().get(3).replace("\n", ""));
+        final int hopCount = extractHopCountFromMessage(message);
         if (nodeContext.getValues().containsKey(key)) {
             Logger.info("Chave encontrada!");
 
