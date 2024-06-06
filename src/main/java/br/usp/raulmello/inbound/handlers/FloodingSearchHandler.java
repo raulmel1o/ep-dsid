@@ -24,25 +24,28 @@ public class FloodingSearchHandler extends AbstractHandler {
             return;
         }
 
+        try {
+            final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+            out.flush();
+            out.writeObject("SEARCH_OK");
+
+        } catch (IOException e) {
+            Logger.debug("Got exception: {}", e.getMessage());
+        }
+
         trackMessage(message.getOrigin(), message.getSequenceNumber());
         nodeContext.getNodeStats().incrementFloodingSearchMessageAmount();
 
         final String key = message.getArgs().get(2);
-        final int hopCount = Integer.parseInt(message.getArgs().get(3));
+        final int hopCount = Integer.parseInt(message.getArgs().get(3).replace("\n", ""));
         if (nodeContext.getValues().containsKey(key)) {
             Logger.info("Chave encontrada!");
 
-            try {
-                final ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
-                out.flush();
-                final Message responseMessage = createValMessage(nodeContext.getHostAddress(),
-                        nodeContext.getSequenceNumber(), nodeContext.getTtl(), "FL",
-                        key, nodeContext.getValues().get(key), hopCount);
+            final Message responseMessage = createValMessage(nodeContext.getHostAddress(),
+                    nodeContext.getSequenceNumber(), nodeContext.getTtl(), "FL",
+                    key, nodeContext.getValues().get(key), hopCount);
 
-                out.writeObject(responseMessage.toString());
-            } catch (IOException e) {
-                Logger.debug("Got exception: {}", e.getMessage());
-            }
+            Outbox.sendMessage(responseMessage, message.getOrigin());
 
             return;
         }
