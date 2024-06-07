@@ -28,5 +28,7 @@ public class ValHandler extends AbstractHandler {
         Logger.info("\tValor encontrado!");
         Logger.info("\t\tchave: {} valor: {}", message.getArgs().get(1), message.getArgs().get(2));
         trackMessage(message.getOrigin(), message.getSequenceNumber());
+
+        nodeContext.getNodeStats().incrementSearchHopAmount(message.getArgs().get(0), Integer.parseInt(message.getArgs().get(3)));
     }
 }

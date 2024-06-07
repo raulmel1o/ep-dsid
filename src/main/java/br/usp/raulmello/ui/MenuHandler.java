@@ -61,6 +61,7 @@ public class MenuHandler {
             final Message message = createSearchFloodingMessage(key, nodeContext.getHostAddress(), nodeContext.getSequenceNumber(), nodeContext.getTtl());
             Outbox.sendMessage(message, nodeContext.getNeighbors());
             nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
+            nodeContext.getNodeStats().incrementSentFloodingSearchMessageAmount();
         }
     }
 
@@ -75,6 +76,7 @@ public class MenuHandler {
             final Address selectedNeighbor = nodeContext.getNeighbors().get(random.nextInt(nodeContext.getNeighbors().size()));
             Outbox.sendMessage(message, selectedNeighbor);
             nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
+            nodeContext.getNodeStats().incrementSentRandomWalkSearchMessageAmount();
         }
     }
 
@@ -94,6 +96,7 @@ public class MenuHandler {
 
             Outbox.sendMessage(message, selectedNeighbor);
             nodeContext.setSequenceNumber(nodeContext.getSequenceNumber() + 1);
+            nodeContext.getNodeStats().incrementSentDepthFirstSearchMessageAmount();
         }
     }
 

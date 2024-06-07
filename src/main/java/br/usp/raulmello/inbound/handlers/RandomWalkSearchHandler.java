@@ -32,7 +32,7 @@ public class RandomWalkSearchHandler extends AbstractHandler {
             Logger.debug("Got exception: {}", e.getMessage());
         }
 
-        nodeContext.getNodeStats().incrementRandomWalkSearchMessageAmount();
+        nodeContext.getNodeStats().incrementReceivedRandomWalkSearchMessageAmount();
 
         final String key = message.getArgs().get(2);
         final int hopCount = extractHopCountFromMessage(message);
