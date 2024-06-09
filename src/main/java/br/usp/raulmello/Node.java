@@ -28,6 +28,8 @@ public class Node {
     private int sequenceNumber;
     private int ttl;
 
+    private DfsContext dfsContext;
+
     private Node(final String hostAddress, final int hostPort, final Map<String, String> values) {
         this.hostAddress = new Address(hostAddress, hostPort);
         this.neighbors = new ArrayList<>();
@@ -36,6 +38,8 @@ public class Node {
         this.nodeStats = new NodeStats();
         this.sequenceNumber = 1;
         this.ttl = 100;
+
+        this.dfsContext = new DfsContext();
     }
 
     public static Node initNode(final String hostAddress, final int hostPort, final Map<String, String> values, final List<String> neighbors) {
