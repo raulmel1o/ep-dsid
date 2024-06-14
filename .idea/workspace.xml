@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: handle change default ttl">
+    <list default="true" id="c1d6599e-4bac-45aa-b0c6-0879b8bbb1cc" name="Changes" comment="feat: create DFS handler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/outbound/Outbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/ui/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/DepthFirstSearchHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/DepthFirstSearchHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/NodeStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/usp/raulmello/utils/NodeStats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +46,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
+    "Application.Test0-1.executor": "Debug",
+    "Application.Test0-2.executor": "Debug",
+    "Application.Test0-3.executor": "Debug",
+    "Application.Test0-4.executor": "Debug",
     "Application.Test0.executor": "Run",
-    "Application.Test1.executor": "Debug",
+    "Application.Test1-1.executor": "Debug",
+    "Application.Test1-2.executor": "Debug",
+    "Application.Test1-3.executor": "Debug",
+    "Application.Test1-4.executor": "Debug",
+    "Application.Test1-5.executor": "Debug",
+    "Application.Test1-6.executor": "Debug",
+    "Application.Test1-7.executor": "Debug",
+    "Application.Test1.executor": "Run",
+    "Application.Test2.executor": "Run",
+    "Application.Test3.executor": "Run",
+    "Application.Test4.executor": "Run",
+    "Application.Test5.executor": "Run",
+    "Application.Test6.executor": "Run",
     "JAR Application.ep-dsid-1.0-SNAPSHOT.jar.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithEmptyArgsList_WhenToString_ThenShouldNotPrintNull.executor": "Run",
     "JUnit.MessageTest.GivenHelloMessageWithNullArgs_WhenToString_ThenShouldNotPrintNull.executor": "Run",
@@ -62,7 +77,6 @@
     "Maven.ep-dsid [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor": "Run",
     "Maven.ep-dsid [org.apache.maven.plugins:maven-jar-plugin:3.4.1:jar].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -81,11 +95,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="br.usp.raulmello.inbound.handlers" />
       <recent name="br.usp.raulmello" />
+      <recent name="br.usp.raulmello.inbound.handlers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.Test0-4">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
@@ -100,18 +114,90 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test0" type="Application" factoryName="Application">
+    <configuration name="Test0-1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
-      <option name="PROGRAM_PARAMETERS" value="localhost 8080 $PROJECT_DIR$/../dsid-tests/neighbors0.txt lista_chave_valor0.txt" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 8001 $PROJECT_DIR$/../dsid-tests/test0/1/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test0/1/valores.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1" type="Application" factoryName="Application">
+    <configuration name="Test0-2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
       <module name="ep-dsid" />
-      <option name="PROGRAM_PARAMETERS" value="localhost 8081 $PROJECT_DIR$/../dsid-tests/neighbors1.txt lista_chave_valor.txt" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 8002 $PROJECT_DIR$/../dsid-tests/test0/2/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test0/2/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test0-3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 8003 $PROJECT_DIR$/../dsid-tests/test0/3/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test0/3/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test0-4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 8004 $PROJECT_DIR$/../dsid-tests/test0/4/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test0/4/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5001 $PROJECT_DIR$/../dsid-tests/test1/1/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/1/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5002 $PROJECT_DIR$/../dsid-tests/test1/2/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/2/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5003 $PROJECT_DIR$/../dsid-tests/test1/3/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/3/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5004 $PROJECT_DIR$/../dsid-tests/test1/4/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/4/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-5" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5005 $PROJECT_DIR$/../dsid-tests/test1/5/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/5/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-6" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5006 $PROJECT_DIR$/../dsid-tests/test1/6/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/6/valores.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1-7" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.usp.raulmello.Main" />
+      <module name="ep-dsid" />
+      <option name="PROGRAM_PARAMETERS" value="127.0.0.1 5007 $PROJECT_DIR$/../dsid-tests/test1/7/vizinhos.txt $PROJECT_DIR$/../dsid-tests/test1/7/valores.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -175,8 +261,17 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Test0" />
-      <item itemvalue="Application.Test1" />
+      <item itemvalue="Application.Test0-1" />
+      <item itemvalue="Application.Test0-2" />
+      <item itemvalue="Application.Test0-3" />
+      <item itemvalue="Application.Test0-4" />
+      <item itemvalue="Application.Test1-1" />
+      <item itemvalue="Application.Test1-2" />
+      <item itemvalue="Application.Test1-3" />
+      <item itemvalue="Application.Test1-4" />
+      <item itemvalue="Application.Test1-5" />
+      <item itemvalue="Application.Test1-6" />
+      <item itemvalue="Application.Test1-7" />
       <item itemvalue="JAR Application.ep-dsid-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.MessageTest.GivenSearchFLString_WhenFromString_ThenShouldParseMessage" />
       <item itemvalue="JUnit.MessageTest.GivenHelloString_WhenFromString_ThenShouldParseMessage" />
@@ -219,7 +314,10 @@
       <workItem from="1716580431819" duration="6435000" />
       <workItem from="1716595607922" duration="2617000" />
       <workItem from="1716771314362" duration="607000" />
-      <workItem from="1717460097931" duration="1123000" />
+      <workItem from="1717460097931" duration="6525000" />
+      <workItem from="1717681950331" duration="35717000" />
+      <workItem from="1718118637472" duration="13000" />
+      <workItem from="1718373953833" duration="10331000" />
     </task>
     <task id="LOCAL-00001" summary="move packages here and there, handle connections">
       <option name="closed" value="true" />
@@ -365,7 +463,231 @@
       <option name="project" value="LOCAL" />
       <updated>1714880983222</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix: hello no longer throwing exception">
+      <option name="closed" value="true" />
+      <created>1717461607832</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717461607832</updated>
+    </task>
+    <task id="LOCAL-00020" summary="chore: remove unused log debug method">
+      <option name="closed" value="true" />
+      <created>1717461644351</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717461644351</updated>
+    </task>
+    <task id="LOCAL-00021" summary="chore: remove unused log debug method">
+      <option name="closed" value="true" />
+      <created>1717461654569</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717461654569</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix: handle empty values from args">
+      <option name="closed" value="true" />
+      <created>1717682828042</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717682828042</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix: add neighbor logs">
+      <option name="closed" value="true" />
+      <created>1717682852678</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1717682852678</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix: initialize node stats object">
+      <option name="closed" value="true" />
+      <created>1717682870568</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1717682870568</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix: initial sequence number should be 1">
+      <option name="closed" value="true" />
+      <created>1717682947373</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1717682947373</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: add log for values">
+      <option name="closed" value="true" />
+      <created>1717683701446</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717683701446</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix: increment sequence number">
+      <option name="closed" value="true" />
+      <created>1717684138982</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684138982</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix: increment sequence number">
+      <option name="closed" value="true" />
+      <created>1717684197664</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684197664</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: tabular logs">
+      <option name="closed" value="true" />
+      <created>1717684667693</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684667693</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix: tabular logs">
+      <option name="closed" value="true" />
+      <created>1717684708840</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684708840</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix: return SEARCH_OK and then send key found message to dispatcher port">
+      <option name="closed" value="true" />
+      <created>1717684743373</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684743373</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix: decrement ttl fixed">
+      <option name="closed" value="true" />
+      <created>1717711049328</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717711049328</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix: return SEARCH_OK also when message as been already processed">
+      <option name="closed" value="true" />
+      <created>1717711081696</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717711081696</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat: enhance VAL log">
+      <option name="closed" value="true" />
+      <created>1717711100045</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1717711100045</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: hop count \n fixed">
+      <option name="closed" value="true" />
+      <created>1717715494077</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1717715494077</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: response BYE_OK">
+      <option name="closed" value="true" />
+      <created>1717715740389</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1717715740389</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix: strip \n from BYE message and inject socket client in BYE Handler">
+      <option name="closed" value="true" />
+      <created>1717716056921</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1717716056921</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix: return VAL_OK to origin">
+      <option name="closed" value="true" />
+      <created>1717723916169</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717723916169</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feat: create node stats">
+      <option name="closed" value="true" />
+      <created>1717725203918</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1717725203918</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: add DFS context field to Node">
+      <option name="closed" value="true" />
+      <created>1717970647045</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970647045</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: add DFS context field to Node">
+      <option name="closed" value="true" />
+      <created>1717970667613</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970667613</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: configure DFS context when stating a DFS">
+      <option name="closed" value="true" />
+      <created>1717970690274</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970690274</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix: throwing exception string could not be parsed to integer">
+      <option name="closed" value="true" />
+      <created>1717970726556</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970726556</updated>
+    </task>
+    <task id="LOCAL-00044" summary="chore: remember to include tracking to RandomWalk">
+      <option name="closed" value="true" />
+      <created>1717970758234</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970758234</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: create DFS handler">
+      <option name="closed" value="true" />
+      <created>1717970770127</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970770127</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat: create DFS handler">
+      <option name="closed" value="true" />
+      <created>1717970795455</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1717970795455</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,36 +705,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="move packages here and there, handle connections" />
-    <MESSAGE value="add sonarlint files to ignore" />
-    <MESSAGE value="deleting not ignored sonarlint files" />
-    <MESSAGE value="print menu after dispatcher runs" />
-    <MESSAGE value="fix hello response value" />
-    <MESSAGE value="fix some break code, create hello response" />
-    <MESSAGE value="remove log4j create jar" />
-    <MESSAGE value="feat: add timeout to hello messages" />
-    <MESSAGE value="feat: create logger" />
-    <MESSAGE value="feat: add support for absolute file paths" />
-    <MESSAGE value="fix: hello message handler" />
-    <MESSAGE value="fix: move logic to handlers" />
-    <MESSAGE value="feat: implement flooding search (not tested yet)" />
-    <MESSAGE value="fix: update LAST_HOP_PORT value" />
-    <MESSAGE value="feat: add factory method for random walk" />
-    <MESSAGE value="feat: add random walk search" />
     <MESSAGE value="feat: create node stats (WIP)" />
     <MESSAGE value="feat: handle change default ttl" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: handle change default ttl" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/usp/raulmello/inbound/handlers/HelloHandler.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix: hello no longer throwing exception" />
+    <MESSAGE value="chore: remove unused log debug method" />
+    <MESSAGE value="fix: handle empty values from args" />
+    <MESSAGE value="fix: add neighbor logs" />
+    <MESSAGE value="fix: initialize node stats object" />
+    <MESSAGE value="fix: initial sequence number should be 1" />
+    <MESSAGE value="feat: add log for values" />
+    <MESSAGE value="fix: increment sequence number" />
+    <MESSAGE value="fix: tabular logs" />
+    <MESSAGE value="fix: return SEARCH_OK and then send key found message to dispatcher port" />
+    <MESSAGE value="fix: decrement ttl fixed" />
+    <MESSAGE value="fix: return SEARCH_OK also when message as been already processed" />
+    <MESSAGE value="feat: enhance VAL log" />
+    <MESSAGE value="fix: hop count \n fixed" />
+    <MESSAGE value="feat: response BYE_OK" />
+    <MESSAGE value="fix: strip \n from BYE message and inject socket client in BYE Handler" />
+    <MESSAGE value="fix: return VAL_OK to origin" />
+    <MESSAGE value="feat: create node stats" />
+    <MESSAGE value="feat: add DFS context field to Node" />
+    <MESSAGE value="feat: configure DFS context when stating a DFS" />
+    <MESSAGE value="fix: throwing exception string could not be parsed to integer" />
+    <MESSAGE value="chore: remember to include tracking to RandomWalk" />
+    <MESSAGE value="feat: create DFS handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create DFS handler" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

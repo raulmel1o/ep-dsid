@@ -34,6 +34,12 @@ public class DepthFirstSearchHandler extends AbstractHandler {
             Logger.debug("Got exception: {}", e.getMessage());
         }
 
+        decrementMessageTtl(message);
+        if (message.getTtl() < 1) {
+            Logger.info("TTL igual a zero, descartando mensagem");
+            return;
+        }
+
         final String key = message.getArgs().get(2);
         final int hopCount = extractHopCountFromMessage(message);
         if (nodeContext.getValues().containsKey(key)) {
@@ -48,24 +54,21 @@ public class DepthFirstSearchHandler extends AbstractHandler {
             return;
         }
 
-        decrementMessageTtl(message);
-        if (message.getTtl() < 1) {
-            Logger.info("TTL igual a zero, descartando mensagem");
-            return;
-        }
-
         final DfsContext dfsContext = nodeContext.getDfsContext();
         dfsContext.setPreviousNode(new Address(clientSocket.getInetAddress().getHostAddress(), Integer.parseInt(message.getArgs().get(1))));
-        if (!verifyMessageAlreadyProcessed(message.getOrigin(), message.getSequenceNumber())  && !nodeContext.getHostAddress().equals(message.getOrigin())) {
-            dfsContext.setMotherNode(message.getOrigin());
+
+        if (!verifyMessageAlreadyProcessed(message.getOrigin(), message.getSequenceNumber())) {
+            dfsContext.setMotherNode(dfsContext.getPreviousNode());
             final List<Address> eligibleNeighbors = nodeContext.getNeighbors();
             eligibleNeighbors.remove(dfsContext.getPreviousNode());
             dfsContext.setEligibleNeighbors(eligibleNeighbors);
         }
+
         trackMessage(message.getOrigin(), message.getSequenceNumber());
+        nodeContext.getNodeStats().incrementReceivedDepthFirstSearchMessageAmount();
 
         if (dfsContext.getMotherNode().equals(nodeContext.getHostAddress()) && dfsContext.getActiveNeighbor().equals(dfsContext.getPreviousNode()) && dfsContext.getEligibleNeighbors().isEmpty()) {
-            Logger.info("BP:Nao foi possivel localizar a chave {}", message.getArgs().get(2));
+            Logger.info("BP: Nao foi possivel localizar a chave {}", message.getArgs().get(2));
             return;
         }
 
